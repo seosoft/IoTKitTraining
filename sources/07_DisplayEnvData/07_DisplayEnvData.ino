@@ -1,33 +1,26 @@
 /*
- * 環境センサーの値を液晶に表示 2
+ * 環境センサーの値を液晶に表示
+ * 
+ * [スケッチ]-[ライブラリをインクルード]-[ライブラリを管理] で以下のライブラリをインストールする必要があります
+ * Grove Temperature and Humidity Sensor
+ * U8g2
  */
-
+ 
 #include <Arduino.h>
 #include <DHT.h>
 #include <U8x8lib.h>
-#include <math.h>
-#include <Wire.h>
-#include "rgb_lcd.h"
 
-// LEDのピン番号
-#define LEDPIN 4
+#define LEDPIN 4    // LEDのピン番号
 
 // 環境センサーの値
 #define DHTPIN 3            // 環境センサー（温度、湿度）のピン番号
 #define DHTTYPE DHT11       // 環境センサーの型番 
 DHT dht(DHTPIN, DHTTYPE);   // 環境センサーを型番を指定
 
-// キャラクターディスプレイ
-rgb_lcd lcd;
-
 // OLED (液晶)の初期化
 U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(U8X8_PIN_NONE);
 
 void setup() {
-  // キャラクターディスプレイの初期化
-  lcd.begin(16, 2);
-  lcd.setRGB(64, 64, 64);
-  
   // 環境センサーの初期化
   dht.begin();
 
@@ -46,8 +39,7 @@ void loop() {
 
   float temp = dht.readTemperature();
   float humi = dht.readHumidity();
-
-  // 液晶に表示
+  
   u8x8.setCursor(0, 0);
   u8x8.print("Temp : ");
   u8x8.print(temp);
@@ -58,12 +50,6 @@ void loop() {
   u8x8.print("%");
   
   u8x8.refreshDisplay();
-
-  // キャラクターディスプレイに表示
-  lcd.setCursor(0, 0);
-  lcd.print("Temp: " + String(temp));
-  lcd.setCursor(0, 1);
-  lcd.print("Hum : " + String(humi));
 
   // 0.5秒待ってからLEDを消灯
   delay(500);

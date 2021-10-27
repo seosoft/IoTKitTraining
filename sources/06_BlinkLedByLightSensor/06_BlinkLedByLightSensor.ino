@@ -9,7 +9,7 @@
 // 部屋の明るさにあわせて下限値を調整する必要があるかもしれません
 // 値を大きくするとセンサーから手を離していてもLEDが点灯したままになるかもしれません
 // 値を小さくするとセンサーを手でしっかり覆わないとLEDが点灯しなくなります
-const int switchOnMin = 512;  // LED点灯させるライトセンサー値の下限
+const int switchOnMin = 256;  // LED点灯させるライトセンサー値の下限
 
 void setup() {
   pinMode(LEDPIN, OUTPUT);
