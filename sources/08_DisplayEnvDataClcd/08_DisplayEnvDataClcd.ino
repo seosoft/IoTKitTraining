@@ -1,10 +1,17 @@
 /*
- * 環境センサーの値を液晶に表示 2
+ * 環境センサーの値を外部のディスプレイに表示
+ * 
+ * 環境センサーの値をディスプレイに表示するものですが、環境データを外部のディスプレイにも表示します。
+ * 表示する先が異なりますが、動作はひとつ前の「環境センサーの値をディスプレイに表示」とほとんど同じです。
+ * 
+ * ここで使用するのはキャラクターディスプレイ（LCD）です。
+ * ドット（画面上の点）が粗く古くから使われているディスプレイですが、
+ * 表示量が少ない場合には見やすく扱いも簡単なデバイスです。
  * 
  * このスケッチは Grove Beginner Kit 以外に "Grove - LCD RGB Backlight" が必要です 
- *
- * [スケッチ]-[ライブラリをインクルード]-[ライブラリを管理] で以下のライブラリをインストールする必要があります
- * Grove LCD RGB
+ * また [スケッチ]-[ライブラリをインクルード]-[ライブラリを管理] で以下のライブラリをインストールする必要があります
+ * - Grove LCD RGB
+ * 
  */
 
 #include <Arduino.h>
@@ -20,7 +27,9 @@
 // 環境センサーの値
 #define DHTPIN 3            // 環境センサー（温度、湿度）のピン番号
 #define DHTTYPE DHT11       // 環境センサーの型番 
-DHT dht(DHTPIN, DHTTYPE);   // 環境センサーを型番を指定
+
+// 環境センサーの型番を指定
+DHT dht(DHTPIN, DHTTYPE);
 
 // キャラクターディスプレイ
 rgb_lcd lcd;
@@ -32,27 +41,29 @@ void setup() {
   // キャラクターディスプレイの初期化
   lcd.begin(16, 2);
   lcd.setRGB(64, 64, 64);
-  
-  // 環境センサーの初期化
-  dht.begin();
 
-  // 液晶の初期化
+  // ディスプレイの初期化
   u8x8.begin();
   u8x8.setFlipMode(1);
 
-  // 表示するフォントの指定
+  // ディスプレイ表示に使用するフォントの指定
   u8x8.setFont(u8x8_font_chroma48medium8_r);
+  
+  // 環境センサーの初期化
+  dht.begin();
 
   pinMode(LEDPIN, OUTPUT);
 }
 
 void loop() {
+  // 環境データの測定を始めるのを人間が確認できるようにLEDを点灯
   digitalWrite(LEDPIN, HIGH);  
 
+  // 環境センサーから温度、湿度を取得
   float temp = dht.readTemperature();
   float humi = dht.readHumidity();
 
-  // 液晶に表示
+  // ディスプレイに環境データを表示
   u8x8.setCursor(0, 0);
   u8x8.print("Temp : ");
   u8x8.print(temp);
@@ -64,13 +75,13 @@ void loop() {
   
   u8x8.refreshDisplay();
 
-  // キャラクターディスプレイに表示
+  // 外部のキャラクターディスプレイに環境データを表示
   lcd.setCursor(0, 0);
   lcd.print("Temp: " + String(temp));
   lcd.setCursor(0, 1);
   lcd.print("Hum : " + String(humi));
 
-  // 0.5秒待ってからLEDを消灯
+  // 0.5秒待ってからLEDを消灯することで測定が終わったことが分かるようにする
   delay(500);
   digitalWrite(LEDPIN, LOW);
 
