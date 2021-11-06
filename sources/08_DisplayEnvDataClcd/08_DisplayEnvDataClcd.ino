@@ -39,8 +39,8 @@ U8X8_SSD1306_128X64_NONAME_HW_I2C u8x8(U8X8_PIN_NONE);
 
 void setup() {
   // キャラクターディスプレイの初期化
-  lcd.begin(16, 2);
-  lcd.setRGB(64, 64, 64);
+  lcd.begin(16, 2);         // 16桁*2行表示に設定
+  lcd.setRGB(64, 64, 64);   // 背景の照明を暗いグレーに設定
 
   // ディスプレイの初期化
   u8x8.begin();
@@ -77,9 +77,9 @@ void loop() {
 
   // 外部のキャラクターディスプレイに環境データを表示
   lcd.setCursor(0, 0);
-  lcd.print("Temp: " + String(temp));
+  lcd.print("Temp : " + String(temp) + "C");
   lcd.setCursor(0, 1);
-  lcd.print("Hum : " + String(humi));
+  lcd.print("Humid: " + String(humi) + "%");
 
   // 0.5秒待ってからLEDを消灯することで測定が終わったことが分かるようにする
   delay(500);
