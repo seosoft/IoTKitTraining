@@ -74,7 +74,7 @@ ZIP ファイルがダウンロードされるので任意のフォルダーに�
 
 ## 5. Arduino IDE の起動
 
-Arduino IDE を起動します。
+Grove Beginner Kit を USB ケーブルで PC に接続して、Arduino IDE を起動します。
 
 <img src="./images/0_launch_ide.jpg" width="280px" />
 
