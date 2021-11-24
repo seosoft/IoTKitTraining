@@ -8,7 +8,9 @@
  * ドット（画面上の点）が粗く古くから使われているディスプレイですが、
  * 表示量が少ない場合には見やすく扱いも簡単なデバイスです。
  * 
- * このスケッチは Grove Beginner Kit 以外に "Grove - LCD RGB Backlight" が必要です 
+ * Grove Beginner Kit にはキャラクターディスプレイは載っていません。
+ * このスケッチを実行するには別途 Grove - LCD RGB Backlight (https://www.switch-science.com/catalog/1629/) が必要です。
+ * 
  * また [スケッチ]-[ライブラリをインクルード]-[ライブラリを管理] で以下のライブラリをインストールする必要があります
  * - Grove LCD RGB
  * 
