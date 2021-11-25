@@ -64,7 +64,7 @@ Windows の場合は、展開後の "**silabser.inf**" を右クリックして 
 
 コンテンツを PC にダウンロードします。
 
-[**GitHub のこちらのページ**](https://github.com/seosoft/IoTKitTraining) で [Code] - [Download ZIP] を選択します。
+[**GitHub のこちらのページ**](https://github.com/seosoft/IoTKitTraining) で [Code]-[Download ZIP] を選択します。
 
 ZIP ファイルがダウンロードされるので任意のフォルダーに展開（解凍）します。
 
@@ -78,11 +78,11 @@ Grove Beginner Kit を USB ケーブルで PC に接続して、Arduino IDE を�
 
 <img src="./images/0_launch_ide.jpg" width="280px" />
 
-[ツール] - [ボード] で "Arduino Uno" を選択します。
+[ツール]-[ボード] で "Arduino Uno" を選択します。
 
 <img src="./images/0_select_board.jpg" width="480px" />
 
-[ツール] - [シリアルポート] でマイコンボードが接続されたポートを選択します。
+[ツール]-[シリアルポート] でマイコンボードが接続されたポートを選択します。
 
 <img src="./images/0_select_port.jpg" width="480px" />
 
@@ -92,7 +92,7 @@ Grove Beginner Kit を USB ケーブルで PC に接続して、Arduino IDE を�
 > 
 > <img src="./images/0_find_comport.jpg" width="360px" />
 
-[ツール] - [シリアルポート] - [ポートの設定] を選択します。
+[ツール]-[シリアルポート]-[ポートの設定] を選択します。
 > 
 > PC のデバイスについてよくわからない場合は、ポートを順番に選択して演習を実施してみることもできます。適切なポートが選択できるとプログラムをボードに転送して実行させることができます。
 
@@ -110,7 +110,7 @@ Grove Beginner Kit を USB ケーブルで PC に接続して、Arduino IDE を�
 |U8g2|液晶ディスプレイを利用するために必要||
 |Grove - LCD RGB Backlight|[外付けのキャラクターディスプレイ](https://www.switch-science.com/catalog/1629/) を利用するために必要|Grove Beginner Kit には載っていない外付けのディスプレイが必要なので、持っていない場合はインストール不要|
 
-ライブラリをインストールするには、Arduino IDE の [スケッチ] - [ライブラリをインクルード] - [ライブラリを管理] を選択します。
+ライブラリをインストールするには、Arduino IDE の [スケッチ]-[ライブラリをインクルード]-[ライブラリを管理] を選択します。
 
 <img src="./images/0_install_library.jpg" width="480px" />
 
