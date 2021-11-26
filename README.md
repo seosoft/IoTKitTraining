@@ -20,6 +20,7 @@
 
 0. [演習の環境構築](./0_Setup.md)
 1. [Arduino IDE の操作](./1_ArduinoIde.md)
+2. [組み込み開発の演習](./2_Lessons.md)
 
 ---
 
